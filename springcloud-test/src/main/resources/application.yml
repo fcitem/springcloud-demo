@@ -5,11 +5,12 @@ eureka:
     serviceUrl:
       defaultZone: http://localhost:8011/eureka/
 server:
-  port: 8013
+  port: 8010
+  max-http-header-size: 8192
 spring:
   application:
-    name: service-ribbon
+    name: service-hi
 logging:
   level:
     root: debug
-  file: ../logs/ribbon-log.log
+  file: ../logs/test-log.log

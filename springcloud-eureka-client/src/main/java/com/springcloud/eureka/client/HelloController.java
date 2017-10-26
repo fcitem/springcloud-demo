@@ -10,8 +10,10 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class HelloController {
 
+	/*@Value("${server.port}")
+    String port;*/
 	@RequestMapping("hello")
     public String sayHello() {
-    	return "hello fc";
+    	return "hello fc：";
     }
 }

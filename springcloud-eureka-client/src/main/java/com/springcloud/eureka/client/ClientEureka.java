@@ -3,7 +3,6 @@ package com.springcloud.eureka.client;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
-import org.springframework.web.bind.annotation.RestController;
 
 /**创建服务提供者
  * 通过注解@EnableEurekaClient 表明自己是一个eurekaclient
@@ -12,11 +11,13 @@ import org.springframework.web.bind.annotation.RestController;
  */
 @SpringBootApplication
 @EnableDiscoveryClient
-@RestController
-public class Client 
+/*
+ * 不能命名为EurekaClient,否则因为同名会报错
+ */
+public class ClientEureka 
 {
     public static void main( String[] args )
     {
-        SpringApplication.run(Client.class, args);
+        SpringApplication.run(ClientEureka.class, args);
     }
 }

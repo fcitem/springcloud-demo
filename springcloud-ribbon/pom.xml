@@ -8,10 +8,15 @@
 	</parent>
 	<artifactId>springcloud-ribbon</artifactId>
 	<dependencies>
-	<!--  eureka依赖了ribbon,不需要额外引入	-->
+		<!-- eureka依赖了ribbon,不需要额外引入 -->
 		<dependency>
 			<groupId>org.springframework.cloud</groupId>
 			<artifactId>spring-cloud-starter-eureka</artifactId>
+		</dependency>
+		<!--  引入断路器路由hystrix	-->
+		<dependency>
+			<groupId>org.springframework.cloud</groupId>
+			<artifactId>spring-cloud-starter-hystrix</artifactId>
 		</dependency>
 	</dependencies>
 </project>
