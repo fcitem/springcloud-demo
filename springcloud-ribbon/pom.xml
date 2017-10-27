@@ -13,10 +13,15 @@
 			<groupId>org.springframework.cloud</groupId>
 			<artifactId>spring-cloud-starter-eureka</artifactId>
 		</dependency>
-		<!--  引入断路器路由hystrix	-->
+		<!-- 引入断路器路由hystrix -->
 		<dependency>
 			<groupId>org.springframework.cloud</groupId>
 			<artifactId>spring-cloud-starter-hystrix</artifactId>
+		</dependency>
+		<!-- feign模块 -->
+		<dependency>
+			<groupId>org.springframework.cloud</groupId>
+			<artifactId>spring-cloud-starter-feign</artifactId>
 		</dependency>
 	</dependencies>
 </project>
