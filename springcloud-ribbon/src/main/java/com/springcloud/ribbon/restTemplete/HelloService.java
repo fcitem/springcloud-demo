@@ -1,7 +1,6 @@
 package com.springcloud.ribbon.restTemplete;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.cloud.client.ServiceInstance;
 import org.springframework.cloud.client.loadbalancer.LoadBalancerClient;
 import org.springframework.http.HttpEntity;
@@ -12,8 +11,6 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 
-import com.netflix.hystrix.contrib.javanica.annotation.HystrixCommand;
-
 /**ribbon负载均衡
  * 通过restTemplete的方式调用
  * @author fengchao
@@ -21,9 +18,6 @@ import com.netflix.hystrix.contrib.javanica.annotation.HystrixCommand;
  */
 @Service
 public class HelloService {
-
-	@Value("${server.port}")
-	private String port;
 
 	@Autowired
 	RestTemplate restTemplate;
@@ -41,9 +35,9 @@ public class HelloService {
 		return response.getBody() + "服务端口:" + serviceInstance.getPort();
 	}*/
 
-	@HystrixCommand(fallbackMethod = "hasError")
+	/*@HystrixCommand(fallbackMethod = "hasError")*/
 	public String sayHello(String name) {
-		ServiceInstance serviceInstance = this.loadBalancerClient.choose(SERVICE_NAME);
+		/*ServiceInstance serviceInstance = this.loadBalancerClient.choose(SERVICE_NAME);*/
 		HttpHeaders headers = new HttpHeaders();
 		headers.setContentType(MediaType.parseMediaType(MediaType.APPLICATION_JSON + ";charset=UTF-8"));
 		//设置短连接
@@ -56,8 +50,8 @@ public class HelloService {
 		/*headers.set("Transfer-Encoding","chunked");*/
 
 		HttpEntity<String> entity = new HttpEntity<String>(null, headers);
-		ResponseEntity<String> response=restTemplate.exchange("http://" + SERVICE_NAME + "/hello",HttpMethod.GET,entity,String.class);
-		return response.getBody() + "服务端口:" + serviceInstance.getPort();
+		ResponseEntity<String> response=restTemplate.exchange("http://" + SERVICE_NAME + "/hello/{name}",HttpMethod.GET,entity,String.class,name);
+		return response.getBody() + "服务端口:";
 	}
 	/**服务故障回调方法
 	 * @param name

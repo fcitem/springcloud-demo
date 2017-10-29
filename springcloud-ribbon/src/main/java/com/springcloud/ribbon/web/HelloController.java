@@ -58,15 +58,15 @@ public class HelloController {
 	/**通过feign可注入的方式调用服务
 	 * @return
 	 */
-	@RequestMapping("ribbon/feign")
-	public String testFign(){
-		return feignService.sayHello();
+	@RequestMapping("ribbon/feign/{name}")
+	public String testFign(@PathVariable("name") String name){
+		return feignService.sayHello(name);
 	}
 	/**通过自定义feign方式调用
 	 * @return
 	 */
-	@RequestMapping("ribbon/feign/customer")
-	public String testCustomerFign(){
-		return customFeign.sayHi();
+	@RequestMapping("ribbon/feign/customer/{name}")
+	public String testCustomerFign(@PathVariable("name") String name){
+		return customFeign.sayHi(name);
 	}
 }
