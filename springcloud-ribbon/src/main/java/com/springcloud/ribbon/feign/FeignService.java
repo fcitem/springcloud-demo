@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.PathVariable;
  * @author fengchao
  *
  */
-@FeignClient(name="SERVICE-HI",configuration=FeignConfigure.class)
+@FeignClient(name="SERVICE-HI",configuration=FeignConfigure.class,fallback=FeignServiceImpl.class)
 public interface FeignService {
 
 	/*@RequestMapping(value="hello",method=RequestMethod.GET)*/

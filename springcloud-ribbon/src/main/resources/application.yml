@@ -13,3 +13,6 @@ logging:
   level:
     root: debug
   file: ../logs/ribbon-log.log
+feign:
+ hystrix:
+  enabled: true

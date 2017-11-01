@@ -8,8 +8,8 @@
 		<artifactId>springcloud-demo</artifactId>
 		<version>0.0.1-SNAPSHOT</version>
 	</parent>
-	<artifactId>springcloud-eureka</artifactId>
-	<name>springcloud-eureka</name>
+	<artifactId>springcloud-zuul</artifactId>
+	<name>springcloud-zuul</name>
 	<url>http://maven.apache.org</url>
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -17,7 +17,12 @@
 	<dependencies>
 		<dependency>
 			<groupId>org.springframework.cloud</groupId>
-			<artifactId>spring-cloud-starter-eureka-server</artifactId>
+			<artifactId>spring-cloud-starter-zuul</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>com.fc.springcloud</groupId>
+			<artifactId>springcloud-eureka-client</artifactId>
+			<version>0.0.1-SNAPSHOT</version>
 		</dependency>
 	</dependencies>
 </project>

@@ -1,8 +1,6 @@
 package com.springcloud.ribbon.restTemplete;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.cloud.client.ServiceInstance;
-import org.springframework.cloud.client.loadbalancer.LoadBalancerClient;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpMethod;
@@ -10,6 +8,8 @@ import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
+
+import com.netflix.hystrix.contrib.javanica.annotation.HystrixCommand;
 
 /**ribbon负载均衡
  * 通过restTemplete的方式调用
@@ -22,8 +22,8 @@ public class HelloService {
 	@Autowired
 	RestTemplate restTemplate;
 
-	@Autowired
-	private LoadBalancerClient loadBalancerClient;
+//	@Autowired
+//	private LoadBalancerClient loadBalancerClient;
 
 	private String SERVICE_NAME = "SERVICE-HI";
 
@@ -35,7 +35,7 @@ public class HelloService {
 		return response.getBody() + "服务端口:" + serviceInstance.getPort();
 	}*/
 
-	/*@HystrixCommand(fallbackMethod = "hasError")*/
+	@HystrixCommand(fallbackMethod = "hasError")
 	public String sayHello(String name) {
 		/*ServiceInstance serviceInstance = this.loadBalancerClient.choose(SERVICE_NAME);*/
 		HttpHeaders headers = new HttpHeaders();

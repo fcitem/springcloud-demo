@@ -1,0 +1,31 @@
+eureka:
+  client:
+    registerWithEureka: true
+    fetchRegistry: true
+    serviceUrl:
+      defaultZone: http://localhost:8011/eureka/
+server:
+  port: 8015
+spring:
+  application:
+    name: service-zuul
+logging:
+  level:
+    root: debug
+  file: ../logs/zuul-log.log
+zuul: 
+  routes: 
+   #注:这儿所有的path前缀将被路由后去掉，若要保留添加
+   #stripPrefix: false
+   ribbon-client: 
+    path: /ribbon/**
+    stripPrefix: false
+    serviceId: service-ribbon
+    sensitiveHeaders: Cookie #指定被忽略头文件列表
+   test-client: 
+    path: /test/**
+    serviceId: service-hi
+   customers: 
+    path: /customers/**
+    url: http://localhost:8080
+    
