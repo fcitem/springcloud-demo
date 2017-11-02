@@ -11,14 +11,14 @@ import org.springframework.http.MediaType;
 import org.springframework.http.client.ClientHttpResponse;
 import org.springframework.stereotype.Component;
 
-/**为路由提供Hystrix回退，当Zuul中给定路由的电路跳闸时，您可以通过创建类型为ZuulFallbackProvider的bean来提供回退响应
+/**为路由提供Hystrix回退，当Zuul中给定服务的提供者出错时，您可以通过创建类型为ZuulFallbackProvider的bean来提供回退响应
  * @author fengchao
  *
  */
 @Component
 public class MyFallbackProvider implements ZuulFallbackProvider {
     /* 
-     * return 可以回退的服务ID
+     * return 可以回退的服务ID,好像是只能拦截配置里面的serviceid,通过rest或者fegin调用的服务不能拦截
     */
     @Override
     public String getRoute() {

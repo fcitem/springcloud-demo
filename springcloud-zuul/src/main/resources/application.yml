@@ -25,7 +25,16 @@ zuul:
    test-client: 
     path: /test/**
     serviceId: service-hi
-   customers: 
-    path: /customers/**
-    url: http://localhost:8080
+#hystrix调用方法的超时时间，默认是1000毫秒，会报超时
+hystrix: 
+ command: 
+  default: 
+   execution: 
+    isolation: 
+     thread: 
+      timeoutInMilliseconds: 5000
+#避免401无权限
+management: 
+ security: 
+  enabled: false
     

@@ -16,3 +16,11 @@ logging:
 feign:
  hystrix:
   enabled: true
+#hystrix调用方法的超时时间，默认是1000毫秒，会报超时
+hystrix: 
+ command: 
+  default: 
+   execution: 
+    isolation: 
+     thread: 
+      timeoutInMilliseconds: 5000
