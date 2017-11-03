@@ -66,5 +66,6 @@
 		<module>springcloud-ribbon</module>
 		<module>springcloud-test</module>
     <module>springcloud-zuul</module>
+    <module>springcloud-configserver</module>
   </modules>
 </project>

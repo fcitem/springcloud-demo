@@ -7,8 +7,6 @@ eureka:
     fetchRegistry: true
     serviceUrl:
       defaultZone: http://localhost:8011/eureka/
-server:
-  port: 8012
 spring:
   application:
     name: service-hi
