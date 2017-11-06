@@ -15,11 +15,16 @@ import org.springframework.web.bind.annotation.RestController;
 public class HelloController {
 	
 	@Value("${server.port}")
-    String port;
+    private String port;
+	
+	//测试远程拉取配置
+	@Value("${foo}")
+	private String foor;
 	
 	@RequestMapping("hello/{name}")
     public String sayHello(@PathVariable("name")String name,HttpServletRequest request) {
 		request.getHeader("Connection");
+		System.out.println(foor);
     	return "server "+port+" say hello："+name;
     }
 }

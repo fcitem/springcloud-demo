@@ -1,17 +1,18 @@
 spring: 
  application: 
   name: config-server
+ profiles: 
+  active: dev
  cloud: 
     config:
       server:
         git:
-          uri: https://github.com/fcitem/springcloud-config
-          #公开仓库不用加用户验证
+          uri: https://github.com/fcitem/springcloud-config/
+          #公开仓库不用加用户验证,输入http://localhost:8016/config-client/dev验证
           username: fcitem
           password: 
-        searchPaths: config-repo
+          searchPaths: config-repo
       label: master
-      enabled: true
 server:
   port: 8016
 management: 

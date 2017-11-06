@@ -4,9 +4,7 @@ eureka:
     fetchRegistry: true
     serviceUrl:
       defaultZone: http://localhost:8011/eureka/
-server:
-  port: 8014
-  max-http-header-size: 8192
+
 spring:
   application:
     name: service-hi
