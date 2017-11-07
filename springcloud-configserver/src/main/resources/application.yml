@@ -4,6 +4,9 @@ spring:
  profiles: 
   active: dev
  cloud: 
+    bus: 
+     trace: 
+      enanled: true
     config:
       server:
         git:
@@ -13,6 +16,11 @@ spring:
           password: 
           searchPaths: config-repo
       label: master
+ rabbitmq:
+    host: 192.168.0.37
+    port: 5672
+    username: admin
+    password: 123456
 server:
   port: 8016
 management: 

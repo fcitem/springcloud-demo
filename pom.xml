@@ -67,5 +67,6 @@
 		<module>springcloud-test</module>
     <module>springcloud-zuul</module>
     <module>springcloud-configserver</module>
+    <module>springcloud-bus</module>
   </modules>
 </project>
