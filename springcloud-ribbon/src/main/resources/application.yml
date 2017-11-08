@@ -9,6 +9,12 @@ server:
 spring:
   application:
     name: service-ribbon
+  zipkin: 
+    base-url: http://localhost:8018
+  sleuth: 
+    sampler: 
+    #设置采样百分比，默认是0.1，这儿调为1是为了测试，以防止不能及时看到链路数据的情况
+     percentage: 1
 logging:
   level:
     root: debug

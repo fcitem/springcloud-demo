@@ -23,10 +23,16 @@
 			<groupId>org.springframework.cloud</groupId>
 			<artifactId>spring-cloud-starter-feign</artifactId>
 		</dependency>
-		<!--  fegin熔断,仪表盘展示	-->
-		<!-- <dependency>
+		<!-- fegin熔断,仪表盘展示 -->
+		<!-- <dependency> <groupId>org.springframework.cloud</groupId> <artifactId>spring-cloud-starter-hystrix-dashboard</artifactId> 
+			</dependency> -->
+		<dependency>
             <groupId>org.springframework.cloud</groupId>
-            <artifactId>spring-cloud-starter-hystrix-dashboard</artifactId>
-        </dependency> -->
+            <artifactId>spring-cloud-starter-zipkin</artifactId>
+        </dependency>
+		<!-- <dependency>
+			<groupId>org.springframework.cloud</groupId>
+			<artifactId>spring-cloud-starter-sleuth</artifactId>
+		</dependency> -->
 	</dependencies>
 </project>
