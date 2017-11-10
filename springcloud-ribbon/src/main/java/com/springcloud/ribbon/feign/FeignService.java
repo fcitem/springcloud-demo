@@ -14,5 +14,6 @@ public interface FeignService {
 
 	/*@RequestMapping(value="hello",method=RequestMethod.GET)*/
 	@GetMapping("hello/{name}")
+	//如果在参数前面没有加@PathVariable注解，默认feign会将参数按@requestBody注解处理，并且默认接受Post请求
 	public String sayHello(@PathVariable("name") String name);
 }
