@@ -40,7 +40,7 @@
 			<artifactId>spring-boot-starter-test</artifactId>
 			<scope>test</scope>
 		</dependency>
-		<!--  swagger依赖		-->
+		<!-- swagger依赖 -->
 		<!-- https://mvnrepository.com/artifact/io.springfox/springfox-swagger2 -->
 		<dependency>
 			<groupId>io.springfox</groupId>
@@ -83,5 +83,14 @@
 		<module>springcloud-configserver</module>
 		<module>springcloud-bus</module>
 		<module>springcloud-zipkin</module>
+		<module>springcloud-docker-test</module>
 	</modules>
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.springframework.boot</groupId>
+				<artifactId>spring-boot-maven-plugin</artifactId>
+			</plugin>
+		</plugins>
+	</build>
 </project>
