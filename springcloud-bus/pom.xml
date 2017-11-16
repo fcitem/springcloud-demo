@@ -29,4 +29,21 @@
 			<artifactId>spring-cloud-starter-bus-amqp</artifactId>
 		</dependency>
 	</dependencies>
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.springframework.boot</groupId>
+				<artifactId>spring-boot-maven-plugin</artifactId>
+			</plugin>
+			<!-- docker打包配置 -->
+			<plugin>
+				<groupId>com.spotify</groupId>
+				<artifactId>docker-maven-plugin</artifactId>
+				<configuration>
+					<!-- 镜像名字 -->
+					<imageName>${project.name}/8017:${project.version}</imageName>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
 </project>
