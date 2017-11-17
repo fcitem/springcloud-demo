@@ -3,7 +3,7 @@ FROM frolvlad/alpine-oraclejdk8:slim
 #使容器中的一个目录具有持久化存储数据的功能，该目录可以被容器本身使用，也可以共享给其他容器。当容器中的应用有持久化数据的需求时可以在Dockerfile中使用该指令。
 VOLUME /tmp
 #从src目录复制文件到容器的dest。其中src可以是Dockerfile所在目录的相对路径，也可以是一个URL，还可以是一个压缩包
-ADD ./springcloud-test-0.0.1-SNAPSHOT.jar app.jar
+ADD ./springcloud-test-0.0.1-SNAPSHOT.jar springcloud-test.jar
 #RUN bash -c 'touch /app.jar'
 #指定Docker容器启动时执行的命令，可以多次设置，但是只有最后一个有效。
 ENTRYPOINT ["java","-Djava.security.egd=file:/dev/./urandom","-jar","/springcloud-test.jar"]

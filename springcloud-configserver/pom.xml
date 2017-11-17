@@ -39,6 +39,10 @@
 			<plugin>
 				<groupId>com.spotify</groupId>
 				<artifactId>docker-maven-plugin</artifactId>
+				<configuration>
+					<!-- 镜像名字 -->
+					<imageName>${project.name}/8016:${project.version}</imageName>
+				</configuration>
 			</plugin>
 		</plugins>
 	</build>
