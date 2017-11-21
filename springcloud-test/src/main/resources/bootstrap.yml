@@ -1,12 +1,3 @@
 spring: 
- application: 
-  name: config-client
- cloud: 
-  config: 
-   label: master
-   profile: dev
-   uri: http://localhost:8016/
-   #远程文件名
-   name: config-client-dev
-server:
- port: 8014
+ profiles: 
+  active: dev

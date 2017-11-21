@@ -1,0 +1,12 @@
+spring: 
+ application: 
+  name: cloud-bus
+ cloud: 
+  config: 
+   label: master
+   profile: dev
+   uri: http://config-server/
+   #远程文件名
+   name: config-client-dev
+server: 
+ port: 8017

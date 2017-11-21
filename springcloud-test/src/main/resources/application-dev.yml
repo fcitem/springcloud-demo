@@ -1,19 +1,18 @@
 eureka:
   client:
-    healthcheck: 
-    #开启健康检查
-     enabled: true
     registerWithEureka: true
     fetchRegistry: true
     serviceUrl:
       defaultZone: http://localhost:8011/eureka/
-spring:
+spring: 
   application:
     name: service-hi
+  zipkin: 
+    base-url: http://localhost:8018
+  sleuth: 
+    sampler: 
+     percentage: 1
 logging:
   level:
     root: debug
-  file: ../logs/eurekra-log.log
-management: 
- security: 
-  enabled: false
+  file: ../logs/test-log.log

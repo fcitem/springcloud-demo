@@ -1,0 +1,19 @@
+eureka:
+  client:
+    healthcheck: 
+    #开启健康检查
+     enabled: true
+    registerWithEureka: true
+    fetchRegistry: true
+    serviceUrl:
+      defaultZone: http://eureka-server/eureka/
+spring:
+  application:
+    name: service-hi
+logging:
+  level:
+    root: debug
+  file: ../logs/eurekra-log.log
+management: 
+ security: 
+  enabled: false

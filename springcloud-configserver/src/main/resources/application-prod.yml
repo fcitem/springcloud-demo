@@ -1,0 +1,26 @@
+spring: 
+ application: 
+  name: config-server
+ cloud: 
+    bus: 
+     trace: 
+      enanled: true
+    config:
+      server:
+        git:
+          uri: https://github.com/fcitem/springcloud-config/
+          #公开仓库不用加用户验证,输入http://localhost:8016/config-client/dev验证
+          username: fcitem
+          password: 
+          searchPaths: config-repo
+      label: master
+ rabbitmq:
+    host: 127.0.0.1
+    port: 5672
+    username: admin
+    password: 123456
+server:
+  port: 8016
+management: 
+ security: 
+  enabled: false
