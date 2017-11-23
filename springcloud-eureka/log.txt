@@ -1,0 +1,11 @@
+[INFO] Scanning for projects...
+[INFO]                                                                         
+[INFO] ------------------------------------------------------------------------
+[INFO] Building springcloud-eureka 0.0.1-SNAPSHOT
+[INFO] ------------------------------------------------------------------------
+[INFO] 
+[INFO] --- docker-maven-plugin:0.4.3:build (default-cli) @ springcloud-eureka ---
+[INFO] Copying E:\EclipsePro\springcloud-demo\springcloud-eureka\target\springcloud-eureka-0.0.1-SNAPSHOT.jar -> E:\EclipsePro\springcloud-demo\springcloud-eureka\target\docker\springcloud-eureka-0.0.1-SNAPSHOT.jar
+[INFO] Copying src\main\docker\Dockerfile -> E:\EclipsePro\springcloud-demo\springcloud-eureka\target\docker\Dockerfile
+[INFO] Building image springcloud-eureka/8011:0.0.1-SNAPSHOT
+^C

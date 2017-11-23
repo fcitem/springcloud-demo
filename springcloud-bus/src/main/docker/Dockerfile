@@ -5,6 +5,6 @@ VOLUME /tmp
 #从src目录复制文件到容器的dest。其中src可以是Dockerfile所在目录的相对路径，也可以是一个URL，还可以是一个压缩包
 ADD ./springcloud-bus-0.0.1-SNAPSHOT.jar springcloud-bus.jar
 #指定Docker容器启动时执行的命令，可以多次设置，但是只有最后一个有效。
-ENTRYPOINT ["java","-Djava.security.egd=file:/dev/./urandom","-jar","/springcloud-bus.jar"]
+ENTRYPOINT ["java","-Djava.security.egd=file:/dev/./urandom","-jar","/springcloud-bus.jar","--spring.profiles.active=prod"]
 #为Docker容器设置对外的端口号。在启动时，可以使用-p选项或者-P选项。
 EXPOSE 8017

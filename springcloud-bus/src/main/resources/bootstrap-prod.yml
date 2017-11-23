@@ -5,7 +5,7 @@ spring:
   config: 
    label: master
    profile: dev
-   uri: http://config-server/
+   uri: http://config-server:8016/
    #远程文件名
    name: config-client-dev
 server: 
