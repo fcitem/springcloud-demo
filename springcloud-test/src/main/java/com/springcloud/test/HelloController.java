@@ -1,5 +1,7 @@
 package com.springcloud.test;
 
+import java.util.concurrent.TimeUnit;
+
 import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Value;
@@ -24,6 +26,11 @@ public class HelloController {
 	@RequestMapping("hello/{name}")
     public String sayHello(@PathVariable("name")String name,HttpServletRequest request) {
 		request.getHeader("Connection");
+		try {
+			TimeUnit.SECONDS.sleep(10);
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
 		System.out.println(foor);
     	return "server "+port+" say hello："+name;
     }
