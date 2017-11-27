@@ -21,6 +21,7 @@ public class TomcatConfig {
 	    public EmbeddedServletContainerFactory servletContainer() {
 	        TomcatEmbeddedServletContainerFactory tomcat = new TomcatEmbeddedServletContainerFactory();
 	        tomcat.setPort(8010);
+//	        tomcat.addConnectorCustomizers(new to);
 	        Connector connector = new Connector("org.apache.coyote.http11.Http11NioProtocol");
 	        Http11NioProtocol protocol = (Http11NioProtocol) connector.getProtocolHandler();
 	        protocol.setMaxHttpHeaderSize(18192);

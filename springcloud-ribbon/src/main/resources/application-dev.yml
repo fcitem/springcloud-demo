@@ -6,6 +6,9 @@ eureka:
       defaultZone: http://localhost:8011/eureka/
 server:
   port: 8013
+  keepAliveTimeout: 100000
+  maxKeepAliveRequests: 50
+  aa: 111
 spring:
   application:
     name: service-ribbon

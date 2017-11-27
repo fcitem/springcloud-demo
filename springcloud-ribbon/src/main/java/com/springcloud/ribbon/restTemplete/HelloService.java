@@ -41,7 +41,7 @@ public class HelloService {
 		HttpHeaders headers = new HttpHeaders();
 		headers.setContentType(MediaType.parseMediaType(MediaType.APPLICATION_JSON + ";charset=UTF-8"));
 		//设置短连接
-		headers.set("Connection", "close");
+		/*headers.set("Connection", "close");*/
 		
 		//目前resttemplete长连接的方式会造成eof异常 ?
 		/*headers.set("Connection", "keep-alive");*/
