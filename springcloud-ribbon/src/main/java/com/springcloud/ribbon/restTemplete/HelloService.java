@@ -10,6 +10,11 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 
 import com.netflix.hystrix.contrib.javanica.annotation.HystrixCommand;
+import com.netflix.hystrix.contrib.javanica.command.AsyncResult;
+
+import rx.Observable;
+import rx.Subscriber;
+import rx.internal.util.ObserverSubscriber;
 
 /**ribbon负载均衡
  * 通过restTemplete的方式调用
@@ -36,9 +41,9 @@ public class HelloService {
 	}*/
 
 	@HystrixCommand(fallbackMethod = "hasError")
-	public String sayHello(String name) {
+	public AsyncResult<String> sayHello(final String name) {
 		/*ServiceInstance serviceInstance = this.loadBalancerClient.choose(SERVICE_NAME);*/
-		HttpHeaders headers = new HttpHeaders();
+		final HttpHeaders headers = new HttpHeaders();
 		headers.setContentType(MediaType.parseMediaType(MediaType.APPLICATION_JSON + ";charset=UTF-8"));
 		//设置短连接
 		/*headers.set("Connection", "close");*/
@@ -48,10 +53,17 @@ public class HelloService {
 
 		/*headers.set("Accept-Encoding", "GZIP");*/
 		/*headers.set("Transfer-Encoding","chunked");*/
-
-		HttpEntity<String> entity = new HttpEntity<String>(null, headers);
+        return new AsyncResult<String>() {
+			@Override
+			public String invoke() {
+				HttpEntity<String> entity = new HttpEntity<String>(null, headers);
+				ResponseEntity<String> response=restTemplate.exchange("http://" + SERVICE_NAME + "/hello/{name}",HttpMethod.GET,entity,String.class,name);
+				return response.getBody() + "服务端口:";
+			}
+		};
+		/*HttpEntity<String> entity = new HttpEntity<String>(null, headers);
 		ResponseEntity<String> response=restTemplate.exchange("http://" + SERVICE_NAME + "/hello/{name}",HttpMethod.GET,entity,String.class,name);
-		return response.getBody() + "服务端口:";
+		return response.getBody() + "服务端口:";*/
 	}
 	/**服务故障回调方法
 	 * @param name

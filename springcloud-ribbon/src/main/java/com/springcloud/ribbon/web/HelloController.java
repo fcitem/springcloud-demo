@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.netflix.hystrix.contrib.javanica.command.AsyncResult;
 import com.springcloud.ribbon.feign.AddHeaderInterceptor;
 import com.springcloud.ribbon.feign.CustomFeign;
 import com.springcloud.ribbon.feign.FeignService;
@@ -53,7 +54,8 @@ public class HelloController {
 	 */
 	@RequestMapping("ribbon/{name}")
 	public String test(@PathVariable("name") String name){
-		return service.sayHello(name);
+		AsyncResult<String> result= service.sayHello(name);
+		return result.get();
 	}
 	/**通过feign可注入的方式调用服务
 	 * @return

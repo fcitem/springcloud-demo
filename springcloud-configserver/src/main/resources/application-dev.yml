@@ -15,7 +15,7 @@ spring:
           searchPaths: config-repo
       label: master
  rabbitmq:
-    host: 192.168.0.37
+    host: 120.78.222.34
     port: 5672
     username: admin
     password: 123456
